@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedUp — Gamificação para a sua jornada médica</title>
+    <meta name="description" content="MedUp transforma o estudo diário do futuro médico em hábito viciante, da Fisiologia à prova de Residência.">
+    <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@900,800,700,500,400&f[]=cabinet-grotesk@800,500,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="landing.css">
+</head>
+<body>
+
+    <div class="ambient-wash" aria-hidden="true"></div>
+    <div class="ambient-grain" aria-hidden="true"></div>
+
+    <!-- ============ NAV (floating glass pill) ============ -->
+    <header class="nav-pill">
+        <a href="#top" class="brand" aria-label="MedUp">
+            <span class="logo-mark"></span>
+            <span class="logo-word">MedUp</span>
+        </a>
+        <nav class="nav-links" aria-label="Navegação">
+            <a href="#manifesto">Manifesto</a>
+            <a href="#how">Método</a>
+            <a href="#diff">Diferencial</a>
+            <a href="#roadmap">Jornada</a>
+        </nav>
+        <a href="#waitlist" class="btn btn-primary btn-sm">Entrar na lista</a>
+    </header>
+
+    <main id="top" class="page">
+
+        <!-- ============ HERO — Cinematic Center ============ -->
+        <section class="hero">
+            <div class="hero-bg">
+                <img src="https://picsum.photos/seed/medup-hero/1920/1200" alt="" class="hero-bg-img">
+                <div class="hero-bg-wash"></div>
+            </div>
+
+            <div class="hero-stage">
+                <h1 class="hero-h1">
+                    O estudo diário do futuro médico, <span class="grad">gamificado pela ciência</span>.
+                </h1>
+                <p class="hero-sub">
+                    Gamificação comportamental profunda, repetição espaçada e neurociência aplicada. Da Fisiologia à prova de Residência — sem largar a sua mão.
+                </p>
+                <div class="hero-ctas">
+                    <a href="#waitlist" class="btn btn-primary btn-xl">
+                        Entrar na lista
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </a>
+                    <a href="#how" class="btn btn-ghost btn-xl">Ver como funciona</a>
+                </div>
+            </div>
+
+            <div class="hero-scroll" aria-hidden="true">
+                <span>scroll</span>
+                <div class="scroll-line"></div>
+            </div>
+        </section>
+
+        <!-- ============ INFINITE MARQUEE — methods ============ -->
+        <section class="marquee" aria-label="Fundamentos científicos">
+            <div class="marquee-track">
+                <div class="marquee-group">
+                    <span class="m-item">Framework Octalysis</span>
+                    <span class="m-dot"></span>
+                    <span class="m-item">Repetição Espaçada</span>
+                    <span class="m-dot"></span>
+                    <span class="m-item">Neurociência Aplicada</span>
+                    <span class="m-dot"></span>
+                    <span class="m-item">Behavioral Design</span>
+                    <span class="m-dot"></span>
+                    <span class="m-item">Casos Clínicos Interativos</span>
+                    <span class="m-dot"></span>
+                    <span class="m-item">Ligas Sociais</span>
+                    <span class="m-dot"></span>
+                </div>
+                <div class="marquee-group" aria-hidden="true">
+                    <span class="m-item">Framework Octalysis</span>
+                    <span class="m-dot"></span>
+                    <span class="m-item">Repetição Espaçada</span>
+                    <span class="m-dot"></span>
+                    <span class="m-item">Neurociência Aplicada</span>
+                    <span class="m-dot"></span>
+                    <span class="m-item">Behavioral Design</span>
+                    <span class="m-dot"></span>
+                    <span class="m-item">Casos Clínicos Interativos</span>
+                    <span class="m-dot"></span>
+                    <span class="m-item">Ligas Sociais</span>
+                    <span class="m-dot"></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ MANIFESTO — Scrubbing Text Reveal ============ -->
+        <section id="manifesto" class="manifesto">
+            <div class="container">
+                <p class="manifesto-text" data-scrub>
+                    <span>Hoje,</span> <span>o</span> <span>Brasil</span> <span>forma</span> <span>mais</span> <span>médicos</span> <span>que</span> <span>nunca.</span>
+                    <span>Mas</span> <span>1</span> <span>em</span> <span>cada</span> <span>5</span> <span>estudantes</span> <span>já</span> <span>chega</span> <span>à</span> <span>formatura</span> <span>com</span> <span>burnout.</span>
+                    <span>O</span> <span>problema</span> <span>não</span> <span>é</span> <span>falta</span> <span>de</span> <span>conteúdo.</span>
+                    <span>É</span> <span>falta</span> <span>de</span>
+                    <span class="grad-word">consistência</span>
+                    <span class="grad-word">sem</span>
+                    <span class="grad-word">exaustão.</span>
+                </p>
+            </div>
+        </section>
+
+        <!-- ============ PROBLEM — Gapless Bento ============ -->
+        <section class="bento-section">
+            <div class="container">
+                <header class="section-head">
+                    <h2 class="section-h2">
+                        Estudar mais
+                        <span class="inline-img" role="img" aria-label="livros" style="background-image:url('https://picsum.photos/seed/medup-books/400/200');"></span>
+                        nunca foi o problema.
+                    </h2>
+                    <p class="section-lede">
+                        Volume infinito de videoaula e PDF gera exaustão, não retenção. O futuro médico precisa de outra coisa.
+                    </p>
+                </header>
+
+                <div class="bento">
+                    <article class="bento-cell cell-stat">
+                        <span class="cell-tag">A dor real</span>
+                        <div class="big-stat-block">
+                            <span class="big-stat">19,6<i>%</i></span>
+                            <p>dos internos de medicina apresentam burnout <em>antes</em> mesmo de se formar.</p>
+                        </div>
+                        <p class="cell-meta">Fonte: pesquisa com 200+ estudantes — CESAR School, 2026</p>
+                    </article>
+
+                    <article class="bento-cell cell-image">
+                        <img src="https://picsum.photos/seed/medup-hospital/900/1200" alt="Estudante de medicina exausto em corredor hospitalar">
+                        <div class="cell-image-wash"></div>
+                        <span class="cell-image-quote">"Eu acordo cansada antes mesmo do plantão começar."</span>
+                    </article>
+
+                    <article class="bento-cell cell-mini">
+                        <h3>O paradoxo</h3>
+                        <p>Alta motivação pelo futuro médico. Rotina diária impossível de sustentar.</p>
+                    </article>
+
+                    <article class="bento-cell cell-mini">
+                        <h3>O ciclo atual</h3>
+                        <p>Mais conteúdo passivo, mais culpa, mais abandono. O loop da exaustão se realimenta.</p>
+                    </article>
+
+                    <article class="bento-cell cell-mini">
+                        <h3>O gargalo</h3>
+                        <p>50 mil formandos por ano. 16 mil vagas de R1. A preparação virou obrigação competitiva.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ HOW — Scroll Pin (GSAP) ============ -->
+        <section id="how" class="pin-section">
+            <div class="pin-grid container">
+                <aside class="pin-aside">
+                    <div class="pin-inner">
+                        <h2 class="section-h2">
+                            Hábito antes de
+                            <span class="strike">volume</span>.
+                            <br>Ciência antes de hype.
+                        </h2>
+                        <p class="section-lede">
+                            Três camadas que se sustentam mutuamente. Você abre o app, joga doze minutos, evolui. No dia seguinte, repete.
+                        </p>
+                        <a href="#waitlist" class="btn btn-primary btn-lg">
+                            Quero testar
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </a>
+                    </div>
+                </aside>
+
+                <div class="pin-scroll">
+                    <article class="step-card">
+                        <div class="step-head">
+                            <span class="step-num">01</span>
+                            <h3>Diagnóstico inicial</h3>
+                        </div>
+                        <p>Mapeamos sua fase — ciclo básico, internato ou R1 — e calibramos a dificuldade ao seu nível real. Nada de telas genéricas.</p>
+                        <ul class="step-list">
+                            <li>Quiz de calibração adaptativo</li>
+                            <li>Detecção de gaps por disciplina</li>
+                            <li>Plano semanal personalizado</li>
+                        </ul>
+                    </article>
+
+                    <article class="step-card">
+                        <div class="step-head">
+                            <span class="step-num">02</span>
+                            <h3>Sessão diária gamificada</h3>
+                        </div>
+                        <p>Doze minutos. Missões curtas com questões, flashcards e casos clínicos. Streaks reforçam o hábito sem te punir pelo plantão da madrugada.</p>
+                        <ul class="step-list">
+                            <li>Repetição espaçada automática</li>
+                            <li>Freeze inteligente nas semanas pesadas</li>
+                            <li>XP por consistência, não por intensidade</li>
+                        </ul>
+                    </article>
+
+                    <article class="step-card">
+                        <div class="step-head">
+                            <span class="step-num">03</span>
+                            <h3>Evolução visível</h3>
+                        </div>
+                        <p>Ligas regionais, badges e analytics mostram seu domínio crescer. Você compete com USP, Santa Casa, UNICAMP — e com a sua versão de ontem.</p>
+                        <ul class="step-list">
+                            <li>Leaderboards por faculdade</li>
+                            <li>Mapa de domínio por sistema corporal</li>
+                            <li>Relatórios mensais de evolução</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ DIFFERENTIAL — Horizontal Accordion ============ -->
+        <section id="diff" class="diff-section">
+            <div class="container">
+                <header class="section-head">
+                    <h2 class="section-h2">
+                        Não é só questão.
+                        <br>É <em>mudança</em> de comportamento.
+                    </h2>
+                    <p class="section-lede">
+                        Concorrentes prometem gamificação e entregam gráfico de acertos. A gente joga outro campeonato.
+                    </p>
+                </header>
+
+                <div class="accordion" role="tablist">
+                    <article class="acc-slice acc-open" data-acc>
+                        <div class="acc-side">
+                            <span class="acc-num">01</span>
+                            <h3 class="acc-title">Streaks &amp; Freeze Inteligente</h3>
+                        </div>
+                        <div class="acc-content">
+                            <div class="acc-img" style="background-image:url('https://picsum.photos/seed/medup-streak/900/700');"></div>
+                            <div class="acc-text">
+                                <p>Plantão varou a noite? O sistema entende e protege o streak. Em vez de te punir e empurrar pro burnout, o app reorganiza a meta da semana.</p>
+                                <ul>
+                                    <li>Detecção automática de sobrecarga</li>
+                                    <li>Pausa programável sem perder progresso</li>
+                                    <li>Histórico sem culpa, com contexto</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="acc-slice" data-acc>
+                        <div class="acc-side">
+                            <span class="acc-num">02</span>
+                            <h3 class="acc-title">Serious Games Clínicos</h3>
+                        </div>
+                        <div class="acc-content">
+                            <div class="acc-img" style="background-image:url('https://picsum.photos/seed/medup-clinic/900/700');"></div>
+                            <div class="acc-text">
+                                <p>Você não só responde — você decide. Casos interativos com consequência clínica, debriefing científico e liberdade total para errar sem risco.</p>
+                                <ul>
+                                    <li>Decisão sob pressão temporal</li>
+                                    <li>Caminhos múltiplos por caso</li>
+                                    <li>Feedback instantâneo do raciocínio</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="acc-slice" data-acc>
+                        <div class="acc-side">
+                            <span class="acc-num">03</span>
+                            <h3 class="acc-title">Ligas Sociais</h3>
+                        </div>
+                        <div class="acc-content">
+                            <div class="acc-img" style="background-image:url('https://picsum.photos/seed/medup-league/900/700');"></div>
+                            <div class="acc-text">
+                                <p>Compita em leaderboards da sua faculdade e transforme estudo solitário em comunidade. USP contra UNICAMP, Santa Casa contra UNIFESP — todo dia.</p>
+                                <ul>
+                                    <li>Ranking regional por instituição</li>
+                                    <li>Squads de estudo com até 5 amigos</li>
+                                    <li>Desafios semanais com temas reais de banca</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ GOLDEN CIRCLE — Editorial 3-up ============ -->
+        <section class="golden-section">
+            <div class="container">
+                <header class="section-head">
+                    <h2 class="section-h2">Por que. Como. O quê.</h2>
+                </header>
+
+                <div class="golden-grid">
+                    <div class="golden-card golden-why">
+                        <span class="golden-key">Why</span>
+                        <p>Porque a falta de consistência não pode matar o desejo de aprender em um currículo tão pesado.</p>
+                    </div>
+                    <div class="golden-card golden-how">
+                        <span class="golden-key">How</span>
+                        <p>Gamificação comportamental profunda (Octalysis) somada à repetição espaçada e à neurociência aplicada.</p>
+                    </div>
+                    <div class="golden-card golden-what">
+                        <span class="golden-key">What</span>
+                        <p>Um app que acompanha o estudante da Fisiologia até a prova de Residência, sem largar a mão no caminho.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ ROADMAP — Editorial Timeline ============ -->
+        <section id="roadmap" class="roadmap-section">
+            <div class="container">
+                <header class="section-head">
+                    <h2 class="section-h2">A jornada de expansão.</h2>
+                    <p class="section-lede">Começamos onde o hábito nasce. Terminamos onde a aprovação acontece.</p>
+                </header>
+
+                <div class="rmap">
+                    <div class="rmap-row">
+                        <span class="rmap-phase">Fase 01</span>
+                        <span class="rmap-time">0 – 1 ano</span>
+                        <h3 class="rmap-title">Validação &amp; Hábito</h3>
+                        <p class="rmap-desc">Foco no ciclo básico — Fisiologia, Patologia. Construção orgânica do hábito de estudo diário em estudantes do 1º ao 4º período.</p>
+                    </div>
+                    <div class="rmap-row">
+                        <span class="rmap-phase">Fase 02</span>
+                        <span class="rmap-time">1 – 2 anos</span>
+                        <h3 class="rmap-title">Extensivo Bases</h3>
+                        <p class="rmap-desc">Transição natural para o internato com resolução de casos clínicos completos e integração das bancas mais cobradas.</p>
+                    </div>
+                    <div class="rmap-row rmap-row-final">
+                        <span class="rmap-phase">Fase 03</span>
+                        <span class="rmap-time">2+ anos</span>
+                        <h3 class="rmap-title">Residência &amp; B2B</h3>
+                        <p class="rmap-desc">Preparatório R1 e parcerias diretas com universidades. Monetização escalável e impacto na ponta da formação médica brasileira.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ CTA — Massive Action ============ -->
+        <section id="waitlist" class="cta-section">
+            <div class="container">
+                <div class="cta-stage">
+                    <h2 class="cta-h1">
+                        Estude com consistência.
+                        <br><span class="grad">Termine sem burnout.</span>
+                    </h2>
+                    <p class="cta-sub">
+                        Entre na lista de espera. Seja um dos primeiros a testar o MedUp antes do lançamento oficial.
+                    </p>
+                    <form class="cta-form" id="waitlistForm" novalidate>
+                        <label class="sr-only" for="email">Seu e-mail</label>
+                        <input type="email" id="email" name="email" placeholder="seu.email@usp.br" required autocomplete="email">
+                        <button type="submit" class="btn btn-primary btn-xl">
+                            Quero entrar
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </button>
+                    </form>
+                    <p class="form-msg" id="formMsg" role="status"></p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="footer">
+        <div class="container footer-top">
+            <div class="footer-brand">
+                <span class="logo-word footer-logo">MedUp</span>
+                <p>Gamificação comportamental integrada à jornada médica brasileira.</p>
+            </div>
+            <div class="footer-cols">
+                <div>
+                    <h4>Produto</h4>
+                    <a href="#how">Método</a>
+                    <a href="#diff">Diferenciais</a>
+                    <a href="#roadmap">Jornada</a>
+                </div>
+                <div>
+                    <h4>Projeto</h4>
+                    <a href="https://sites.google.com/view/g4-medup" target="_blank" rel="noopener">Site oficial</a>
+                    <a href="#manifesto">Manifesto</a>
+                </div>
+                <div>
+                    <h4>Contato</h4>
+                    <a href="#waitlist">Lista de espera</a>
+                    <a href="mailto:contato@medup.app">contato@medup.app</a>
+                </div>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <span>© 2026 MedUp · CESAR School · Projetos 4</span>
+            <span>Recife, Brasil</span>
+        </div>
+    </footer>
+
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+        integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+        integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"></script>
+    <script src="landing.js"></script>
+</body>
+</html>
