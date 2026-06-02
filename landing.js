@@ -1,113 +1,59 @@
 /* ============================================================
-   MedUp landing — GSAP scroll choreography
-   Paradigm A: Pinned aside (How section)
-   Paradigm B: Scrubbing per-word text reveal (Manifesto)
+   MedUp — landing JS (perf pass)
+   - One ScrollTrigger.batch per group (vs N triggers per item)
+   - Skip card-reveal motion on small screens / reduced-motion
    ============================================================ */
 (() => {
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const reduce  = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const isSmall = window.matchMedia('(max-width: 720px)').matches;
 
-    /* ===== GSAP setup ===== */
-    if (window.gsap && window.ScrollTrigger) {
+    if (window.gsap && window.ScrollTrigger && !reduce) {
         gsap.registerPlugin(ScrollTrigger);
+        gsap.config({ force3D: true });
+        gsap.defaults({ ease: 'power3.out', duration: 0.7 });
 
-        if (!reduce) {
-            /* Paradigm B — scrubbing per-word reveal in manifesto */
-            const words = document.querySelectorAll('[data-scrub] span');
-            if (words.length) {
-                gsap.to(words, {
-                    opacity: 1,
-                    stagger: 0.05,
-                    ease: 'none',
-                    scrollTrigger: {
-                        trigger: '#manifesto',
-                        start: 'top 75%',
-                        end: 'bottom 35%',
-                        scrub: 0.6,
-                    },
-                });
-            }
+        /* Hero entrance — single timeline, runs once */
+        gsap.timeline()
+            .from('.hero-h1',        { y: 50, opacity: 0, duration: 0.9 })
+            .from('.hero-sub',       { y: 24, opacity: 0, duration: 0.7 }, '-=0.5')
+            .from('.hero-ctas .btn', { y: 18, opacity: 0, duration: 0.55, stagger: 0.08 }, '-=0.4');
 
-            /* Paradigm A — pin the .pin-inner block (CSS sticky handles base,
-               but we also fade in cards as they scroll into view) */
-            gsap.utils.toArray('.step-card').forEach((card, i) => {
-                gsap.fromTo(card,
-                    { opacity: 0, y: 40, scale: 0.96 },
-                    {
-                        opacity: 1, y: 0, scale: 1,
-                        duration: 0.9,
-                        ease: 'power3.out',
-                        scrollTrigger: {
-                            trigger: card,
-                            start: 'top 82%',
-                            toggleActions: 'play none none reverse',
-                        },
-                    }
-                );
+        /* Scrubbing per-word manifesto reveal — one trigger */
+        const words = document.querySelectorAll('[data-scrub] span');
+        if (words.length) {
+            gsap.to(words, {
+                opacity: 1,
+                stagger: 0.04,
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: '#manifesto',
+                    start: 'top 80%',
+                    end: 'bottom 40%',
+                    scrub: 0.5,
+                },
             });
-
-            /* Bento cells fade-in stagger */
-            gsap.utils.toArray('.bento-cell').forEach((cell, i) => {
-                gsap.fromTo(cell,
-                    { opacity: 0, y: 40 },
-                    {
-                        opacity: 1, y: 0,
-                        duration: 0.8,
-                        delay: i * 0.05,
-                        ease: 'power3.out',
-                        scrollTrigger: {
-                            trigger: cell,
-                            start: 'top 85%',
-                            toggleActions: 'play none none reverse',
-                        },
-                    }
-                );
-            });
-
-            /* Golden cards */
-            gsap.utils.toArray('.golden-card').forEach((card, i) => {
-                gsap.fromTo(card,
-                    { opacity: 0, y: 50 },
-                    {
-                        opacity: 1, y: 0,
-                        duration: 0.9,
-                        delay: i * 0.1,
-                        ease: 'power3.out',
-                        scrollTrigger: {
-                            trigger: card,
-                            start: 'top 85%',
-                            toggleActions: 'play none none reverse',
-                        },
-                    }
-                );
-            });
-
-            /* Roadmap rows */
-            gsap.utils.toArray('.rmap-row').forEach((row) => {
-                gsap.fromTo(row,
-                    { opacity: 0, x: -40 },
-                    {
-                        opacity: 1, x: 0,
-                        duration: 0.8,
-                        ease: 'power3.out',
-                        scrollTrigger: {
-                            trigger: row,
-                            start: 'top 85%',
-                            toggleActions: 'play none none reverse',
-                        },
-                    }
-                );
-            });
-
-            /* Hero entrance */
-            gsap.timeline({ defaults: { ease: 'power3.out' } })
-                .from('.hero-h1', { y: 60, opacity: 0, duration: 1.1 })
-                .from('.hero-sub', { y: 30, opacity: 0, duration: 0.9 }, '-=0.6')
-                .from('.hero-ctas .btn', { y: 20, opacity: 0, duration: 0.7, stagger: 0.1 }, '-=0.5')
-                .from('.hero-bg-img', { scale: 1.12, duration: 2.4, ease: 'power2.out' }, 0);
-        } else {
-            /* Reduced motion: reveal everything */
-            document.querySelectorAll('[data-scrub] span').forEach(s => s.style.opacity = 1);
         }
+
+        /* Batched reveals — ONE observer per group instead of one-per-card.
+           Skip on small screens to keep mobile fluid. */
+        if (!isSmall) {
+            const batchOptions = {
+                start: 'top 88%',
+                onEnter: (els) => gsap.fromTo(els,
+                    { opacity: 0, y: 32 },
+                    { opacity: 1, y: 0, stagger: 0.08, overwrite: true }
+                ),
+                once: true,
+            };
+
+            ScrollTrigger.batch('.bento-cell',  batchOptions);
+            ScrollTrigger.batch('.step-card',   batchOptions);
+            ScrollTrigger.batch('.golden-card', batchOptions);
+            ScrollTrigger.batch('.rmap-row',    batchOptions);
+        }
+    } else {
+        /* reveal everything immediately for reduced-motion / no-gsap */
+        document.querySelectorAll('[data-scrub] span').forEach(s => s.style.opacity = 1);
     }
 
     /* ===== Horizontal accordion ===== */
@@ -118,7 +64,7 @@
             slice.classList.add('acc-open');
         };
         slice.addEventListener('click', activate);
-        slice.addEventListener('mouseenter', activate);
+        if (!isSmall) slice.addEventListener('mouseenter', activate);
     });
 
     /* ===== Smooth scroll for anchors ===== */
@@ -163,7 +109,7 @@
         });
     }
 
-    /* ===== ScrollTrigger refresh after fonts load ===== */
+    /* ===== Refresh ScrollTrigger after fonts load ===== */
     if (document.fonts && window.ScrollTrigger) {
         document.fonts.ready.then(() => ScrollTrigger.refresh());
     }
