@@ -17,11 +17,17 @@
     --line: rgba(255, 255, 255, 0.07);
     --line-strong: rgba(255, 255, 255, 0.15);
 
-    --neon: #00ff95;
-    --neon-soft: rgba(0, 255, 149, 0.18);
-    --violet: #8e2de2;
-    --violet-soft: rgba(142, 45, 226, 0.22);
-    --cyan: #00d2ff;
+    /* Paleta da marca */
+    --blue:   #83C3ED;   /* primário (mais usado) */
+    --purple: #4D3E6B;   /* secundário (mais usado, em fills/depth) */
+    --lilac:  #AD9FC8;   /* apoio (uso pontual) */
+
+    /* aliases legados -> paleta da marca */
+    --neon: var(--blue);
+    --neon-soft: rgba(131, 195, 237, 0.20);
+    --violet: var(--purple);
+    --violet-soft: rgba(77, 62, 107, 0.30);
+    --cyan: var(--lilac);
     --alert: #ff4757;
 
     --ink: #f5f7fa;
@@ -78,15 +84,15 @@ ul  { list-style: none; }
 .ambient-wash {
     position: fixed; inset: 0; z-index: -3;
     background:
-        radial-gradient(60% 60% at 15% 0%,  rgba(0,255,149,0.08), transparent 70%),
-        radial-gradient(50% 50% at 88% 18%, rgba(142,45,226,0.16), transparent 72%),
+        radial-gradient(60% 60% at 15% 0%,  rgba(131,195,237,0.10), transparent 70%),
+        radial-gradient(50% 50% at 88% 18%, rgba(77,62,107,0.34), transparent 72%),
         var(--bg);
     pointer-events: none;
 }
 
 /* ============ Typography primitives ============ */
 .grad {
-    background: linear-gradient(110deg, var(--neon) 0%, var(--cyan) 50%, var(--violet) 100%);
+    background: linear-gradient(115deg, var(--blue) 0%, var(--lilac) 55%, var(--blue) 100%);
     -webkit-background-clip: text; background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -176,12 +182,12 @@ em { font-style: italic; color: var(--neon); font-weight: 600; }
 
 .btn-primary {
     background: var(--neon);
-    color: #00130a;
-    box-shadow: 0 6px 18px rgba(0, 255, 149, 0.25);
+    color: #07121b;
+    box-shadow: 0 6px 18px rgba(131, 195, 237, 0.28);
 }
 .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 24px rgba(0,255,149,0.35);
+    box-shadow: 0 10px 24px rgba(131,195,237,0.40);
 }
 
 .btn-ghost {
@@ -363,7 +369,7 @@ section.manifesto {
     margin: 0 0.18em;
 }
 .manifesto-text .grad-word {
-    background: linear-gradient(110deg, var(--neon) 0%, var(--cyan) 50%, var(--violet) 100%);
+    background: linear-gradient(115deg, var(--blue) 0%, var(--lilac) 55%, var(--blue) 100%);
     -webkit-background-clip: text; background-clip: text;
     -webkit-text-fill-color: transparent;
     font-style: italic;
@@ -380,6 +386,17 @@ section.manifesto {
     vertical-align: middle;
     margin: 0 0.4rem;
     box-shadow: inset 0 0 0 1px var(--line-strong);
+}
+
+/* Large hero image above the bento heading (ex-inline pug) */
+.bento-hero-img {
+    width: min(480px, 74%);
+    aspect-ratio: 16 / 10;
+    margin: 0 auto 2.75rem;
+    border-radius: var(--r-xl);
+    background-size: cover;
+    background-position: center;
+    box-shadow: inset 0 0 0 1px var(--line-strong), 0 22px 55px rgba(0, 0, 0, 0.5);
 }
 
 .bento {
@@ -674,9 +691,9 @@ section.manifesto {
     overflow: hidden;
 }
 .golden-card:hover { transform: translateY(-4px); }
-.golden-why  { color: var(--neon); }
-.golden-how  { color: var(--cyan); }
-.golden-what { color: var(--violet); }
+.golden-why  { color: var(--blue);  background: linear-gradient(160deg, rgba(131,195,237,0.10), var(--surface) 72%); }
+.golden-how  { color: var(--lilac); background: linear-gradient(160deg, rgba(173,159,200,0.12), var(--surface) 72%); }
+.golden-what { color: var(--lilac); background: linear-gradient(160deg, rgba(77,62,107,0.45),  var(--surface) 72%); }
 .golden-key {
     font-family: var(--display);
     font-weight: 800;
@@ -707,7 +724,7 @@ section.manifesto {
     cursor: default;
 }
 .rmap-row:hover {
-    background: linear-gradient(90deg, rgba(0,255,149,0.03), transparent);
+    background: linear-gradient(90deg, rgba(131,195,237,0.05), transparent);
     padding-left: 1.5rem;
 }
 .rmap-phase {
@@ -733,7 +750,7 @@ section.manifesto {
 }
 .rmap-desc { color: var(--ink-mute); font-size: 1.02rem; line-height: 1.55; }
 
-.rmap-row-final .rmap-phase { color: var(--violet); }
+.rmap-row-final .rmap-phase { color: var(--lilac); }
 
 /* ============ CTA ============ */
 .cta-section { padding: 9rem 0 11rem; }
@@ -744,8 +761,8 @@ section.manifesto {
     padding: 6rem 3rem;
     border-radius: var(--r-xl);
     background:
-        radial-gradient(ellipse at top, rgba(0,255,149,0.10), transparent 60%),
-        radial-gradient(ellipse at bottom, rgba(142,45,226,0.18), transparent 65%),
+        radial-gradient(ellipse at top, rgba(131,195,237,0.12), transparent 60%),
+        radial-gradient(ellipse at bottom, rgba(77,62,107,0.34), transparent 65%),
         #0a0c14;
     border: 1px solid var(--line-strong);
     box-shadow: 0 14px 40px rgba(0,0,0,0.45);
@@ -794,7 +811,7 @@ section.manifesto {
 .cta-form input::placeholder { color: var(--ink-dim); }
 .cta-form input:focus {
     border-color: var(--neon);
-    box-shadow: 0 0 0 4px rgba(0,255,149,0.12);
+    box-shadow: 0 0 0 4px rgba(131,195,237,0.16);
 }
 .form-msg {
     margin-top: 1.25rem;
