@@ -6,33 +6,33 @@
    ========================================================== */
 
 :root {
-    --bg: #06070b;
-    --bg-2: #0a0c14;
+    --bg: #f4f6fb;
+    --bg-2: #e9ecf5;
 
-    /* solid surfaces (replace translucent + blur with opaque tints) */
-    --surface:   #11141d;
-    --surface-2: #161a26;
-    --surface-3: #1c2030;
+    /* solid light surfaces */
+    --surface:   #ffffff;
+    --surface-2: #f3f5fa;
+    --surface-3: #e9ecf4;
 
-    --line: rgba(255, 255, 255, 0.07);
-    --line-strong: rgba(255, 255, 255, 0.15);
+    --line: rgba(22, 26, 42, 0.10);
+    --line-strong: rgba(22, 26, 42, 0.16);
 
     /* Paleta da marca */
-    --blue:   #83C3ED;   /* primário (mais usado) */
-    --purple: #4D3E6B;   /* secundário (mais usado, em fills/depth) */
+    --blue:   #83C3ED;   /* primário (fills, botões, atmosfera) */
+    --purple: #4D3E6B;   /* secundário (acento de TEXTO no tema claro) */
     --lilac:  #AD9FC8;   /* apoio (uso pontual) */
 
-    /* aliases legados -> paleta da marca */
-    --neon: var(--blue);
-    --neon-soft: rgba(131, 195, 237, 0.20);
+    /* tema claro: o acento de TEXTO é o roxo (contraste sobre o fundo claro) */
+    --neon: var(--purple);
+    --neon-soft: rgba(131, 195, 237, 0.32);
     --violet: var(--purple);
-    --violet-soft: rgba(77, 62, 107, 0.30);
+    --violet-soft: rgba(77, 62, 107, 0.16);
     --cyan: var(--lilac);
-    --alert: #ff4757;
+    --alert: #e23744;
 
-    --ink: #f5f7fa;
-    --ink-mute: #9aa3b2;
-    --ink-dim: #5d6577;
+    --ink: #16191f;
+    --ink-mute: #555c6a;
+    --ink-dim: #818897;
 
     --r-sm: 12px;
     --r:    18px;
@@ -84,17 +84,16 @@ ul  { list-style: none; }
 .ambient-wash {
     position: fixed; inset: 0; z-index: -3;
     background:
-        radial-gradient(60% 60% at 15% 0%,  rgba(131,195,237,0.10), transparent 70%),
-        radial-gradient(50% 50% at 88% 18%, rgba(77,62,107,0.34), transparent 72%),
+        radial-gradient(60% 60% at 15% 0%,  rgba(131,195,237,0.22), transparent 70%),
+        radial-gradient(50% 50% at 88% 18%, rgba(173,159,200,0.20), transparent 72%),
         var(--bg);
     pointer-events: none;
 }
 
 /* ============ Typography primitives ============ */
 .grad {
-    background: linear-gradient(115deg, var(--blue) 0%, var(--lilac) 55%, var(--blue) 100%);
-    -webkit-background-clip: text; background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--purple);
+    -webkit-text-fill-color: var(--purple);
 }
 
 .strike {
@@ -118,12 +117,12 @@ em { font-style: italic; color: var(--neon); font-weight: 600; }
     z-index: 100;
     display: flex; align-items: center; gap: 1.75rem;
     padding: 0.55rem 0.65rem 0.55rem 1.4rem;
-    background: rgba(10, 12, 18, 0.85);
+    background: rgba(255, 255, 255, 0.82);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
     border: 1px solid var(--line-strong);
     border-radius: 999px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.45);
+    box-shadow: 0 8px 24px rgba(22,26,42,0.10);
     max-width: calc(100vw - 32px);
     will-change: transform;
 }
@@ -134,7 +133,7 @@ em { font-style: italic; color: var(--neon); font-weight: 600; }
     width: 22px; height: 22px;
     border-radius: 50%;
     background:
-        radial-gradient(circle at 30% 30%, #fff 0%, var(--neon) 35%, var(--violet) 100%);
+        radial-gradient(circle at 30% 30%, #fff 0%, var(--blue) 40%, var(--purple) 100%);
     box-shadow: 0 0 10px var(--neon-soft);
 }
 
@@ -181,9 +180,9 @@ em { font-style: italic; color: var(--neon); font-weight: 600; }
 .btn-xl { padding: 1.15rem 2rem; font-size: 1.05rem; }
 
 .btn-primary {
-    background: var(--neon);
-    color: #07121b;
-    box-shadow: 0 6px 18px rgba(131, 195, 237, 0.28);
+    background: var(--blue);
+    color: #0d2233;
+    box-shadow: 0 6px 18px rgba(77, 62, 107, 0.18);
 }
 .btn-primary:hover {
     transform: translateY(-2px);
@@ -191,12 +190,12 @@ em { font-style: italic; color: var(--neon); font-weight: 600; }
 }
 
 .btn-ghost {
-    background: rgba(255,255,255,0.04);
+    background: rgba(22,26,42,0.03);
     border-color: var(--line-strong);
     color: var(--ink);
 }
 .btn-ghost:hover {
-    background: rgba(255,255,255,0.1);
+    background: rgba(22,26,42,0.06);
     transform: translateY(-2px);
 }
 
@@ -218,14 +217,14 @@ em { font-style: italic; color: var(--neon); font-weight: 600; }
     width: 100%; height: 100%;
     object-fit: cover;
     /* one cheap filter instead of three */
-    filter: brightness(0.42) contrast(1.05);
-    opacity: 0.7;
+    filter: brightness(1.06) contrast(0.96) saturate(1.05);
+    opacity: 0.3;
 }
 .hero-bg-wash {
     position: absolute; inset: 0;
     background:
-        radial-gradient(ellipse 70% 60% at 50% 60%, rgba(0,0,0,0.0) 0%, rgba(6,7,11,0.85) 60%, rgba(6,7,11,1) 100%),
-        linear-gradient(180deg, rgba(6,7,11,0.6) 0%, rgba(6,7,11,0) 30%, rgba(6,7,11,0.7) 80%, var(--bg) 100%);
+        radial-gradient(ellipse 75% 65% at 50% 55%, rgba(244,246,251,0) 0%, rgba(244,246,251,0.82) 62%, rgba(244,246,251,1) 100%),
+        linear-gradient(180deg, rgba(244,246,251,0.55) 0%, rgba(244,246,251,0) 28%, rgba(244,246,251,0.7) 78%, var(--bg) 100%);
 }
 
 .hero-stage {
@@ -274,7 +273,7 @@ em { font-style: italic; color: var(--neon); font-weight: 600; }
     border-bottom: 1px solid var(--line);
     padding: 1.75rem 0;
     overflow: hidden;
-    background: rgba(0,0,0,0.35);
+    background: rgba(22,26,42,0.03);
     position: relative;
     contain: layout paint;
 }
@@ -338,7 +337,7 @@ section.manifesto {
     font-size: clamp(2.25rem, 4vw, 3.75rem);
     line-height: 1.05;
     letter-spacing: -0.03em;
-    color: #f1f4f9;
+    color: var(--ink);
 }
 
 .section-lede {
@@ -369,9 +368,8 @@ section.manifesto {
     margin: 0 0.18em;
 }
 .manifesto-text .grad-word {
-    background: linear-gradient(115deg, var(--blue) 0%, var(--lilac) 55%, var(--blue) 100%);
-    -webkit-background-clip: text; background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--purple);
+    -webkit-text-fill-color: var(--purple);
     font-style: italic;
 }
 
@@ -396,7 +394,7 @@ section.manifesto {
     border-radius: var(--r-xl);
     background-size: cover;
     background-position: center;
-    box-shadow: inset 0 0 0 1px var(--line-strong), 0 22px 55px rgba(0, 0, 0, 0.5);
+    box-shadow: inset 0 0 0 1px var(--line-strong), 0 22px 55px rgba(22, 26, 42, 0.14);
 }
 
 .bento {
@@ -477,7 +475,7 @@ section.manifesto {
     font-family: var(--display);
     font-weight: 500; font-style: italic;
     font-size: clamp(1.1rem, 1.6vw, 1.4rem);
-    color: var(--ink);
+    color: #ffffff;
     line-height: 1.35;
     z-index: 1;
 }
@@ -643,7 +641,7 @@ section.manifesto {
     flex: 0 0 45%;
     background-size: cover;
     background-position: center;
-    filter: brightness(0.6);
+    filter: brightness(0.95) saturate(1.02);
     border-right: 1px solid var(--line);
 }
 
@@ -691,9 +689,9 @@ section.manifesto {
     overflow: hidden;
 }
 .golden-card:hover { transform: translateY(-4px); }
-.golden-why  { color: var(--blue);  background: linear-gradient(160deg, rgba(131,195,237,0.10), var(--surface) 72%); }
-.golden-how  { color: var(--lilac); background: linear-gradient(160deg, rgba(173,159,200,0.12), var(--surface) 72%); }
-.golden-what { color: var(--lilac); background: linear-gradient(160deg, rgba(77,62,107,0.45),  var(--surface) 72%); }
+.golden-why  { color: var(--purple); background: linear-gradient(160deg, rgba(131,195,237,0.22), var(--surface) 70%); }
+.golden-how  { color: var(--purple); background: linear-gradient(160deg, rgba(173,159,200,0.24), var(--surface) 70%); }
+.golden-what { color: var(--purple); background: linear-gradient(160deg, rgba(77,62,107,0.16),  var(--surface) 70%); }
 .golden-key {
     font-family: var(--display);
     font-weight: 800;
@@ -750,7 +748,7 @@ section.manifesto {
 }
 .rmap-desc { color: var(--ink-mute); font-size: 1.02rem; line-height: 1.55; }
 
-.rmap-row-final .rmap-phase { color: var(--lilac); }
+.rmap-row-final .rmap-phase { color: var(--purple); }
 
 /* ============ CTA ============ */
 .cta-section { padding: 9rem 0 11rem; }
@@ -761,11 +759,11 @@ section.manifesto {
     padding: 6rem 3rem;
     border-radius: var(--r-xl);
     background:
-        radial-gradient(ellipse at top, rgba(131,195,237,0.12), transparent 60%),
-        radial-gradient(ellipse at bottom, rgba(77,62,107,0.34), transparent 65%),
-        #0a0c14;
+        radial-gradient(ellipse at top, rgba(131,195,237,0.28), transparent 60%),
+        radial-gradient(ellipse at bottom, rgba(173,159,200,0.30), transparent 65%),
+        #ffffff;
     border: 1px solid var(--line-strong);
-    box-shadow: 0 14px 40px rgba(0,0,0,0.45);
+    box-shadow: 0 18px 50px rgba(22,26,42,0.12);
     position: relative;
     overflow: hidden;
 }
@@ -775,9 +773,9 @@ section.manifesto {
     font-size: clamp(2.25rem, 4.5vw, 4rem);
     line-height: 1.05;
     letter-spacing: -0.035em;
-    color: #f1f4f9;
+    color: var(--ink);
 }
-.cta-h1 .grad { -webkit-text-fill-color: transparent; }
+.cta-h1 .grad { -webkit-text-fill-color: var(--purple); }
 .cta-sub {
     margin-top: 1.25rem;
     color: var(--ink-mute);
@@ -798,7 +796,7 @@ section.manifesto {
 .cta-form input {
     flex: 1;
     min-width: 240px;
-    background: rgba(0,0,0,0.4);
+    background: rgba(22,26,42,0.03);
     border: 1px solid var(--line-strong);
     border-radius: 999px;
     padding: 1.1rem 1.5rem;
@@ -823,7 +821,7 @@ section.manifesto {
 
 /* ============ FOOTER ============ */
 .footer {
-    background: rgba(0,0,0,0.5);
+    background: var(--surface-2);
     border-top: 1px solid var(--line);
     padding: 4.5rem 0 0;
     margin-top: 2rem;
