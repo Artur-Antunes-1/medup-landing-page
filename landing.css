@@ -19,12 +19,16 @@
 
     /* Paleta da marca */
     --blue:   #83C3ED;   /* primário (fills, botões, atmosfera) */
-    --purple: #4D3E6B;   /* secundário (acento de TEXTO no tema claro) */
+    --purple: #4D3E6B;   /* tradicional (usado só em fills/tints) */
+    --purple-vivid: #6A46D8; /* roxo VIVO p/ acentos (o #4D3E6B chapado fica morto) */
     --lilac:  #AD9FC8;   /* apoio (uso pontual) */
-    --blue-deep: #3F86C2; /* azul mais fundo p/ texto em gradiente (legível no claro) */
+    --blue-deep: #3F86C2;
 
-    /* tema claro: o acento de TEXTO é o roxo (contraste sobre o fundo claro) */
-    --neon: var(--purple);
+    /* gradiente vivo da marca (azul -> roxo, sem verde) — usado nos destaques */
+    --brand-grad: linear-gradient(120deg, #2D86DE 0%, #6A46D8 50%, #8B40C6 100%);
+
+    /* acento de TEXTO chapado = roxo VIVO (não o #4D3E6B morto) */
+    --neon: var(--purple-vivid);
     --neon-soft: rgba(131, 195, 237, 0.32);
     --violet: var(--purple);
     --violet-soft: rgba(77, 62, 107, 0.16);
@@ -93,10 +97,10 @@ ul  { list-style: none; }
 
 /* ============ Typography primitives ============ */
 .grad {
-    background: linear-gradient(115deg, var(--blue-deep) 0%, var(--purple) 100%);
+    background: var(--brand-grad);
     -webkit-background-clip: text; background-clip: text;
     -webkit-text-fill-color: transparent;
-    color: var(--purple); /* fallback */
+    color: var(--purple-vivid); /* fallback */
 }
 
 .strike {
@@ -136,7 +140,7 @@ em { font-style: italic; color: var(--neon); font-weight: 600; }
     width: 22px; height: 22px;
     border-radius: 50%;
     background:
-        radial-gradient(circle at 30% 30%, #fff 0%, var(--blue) 40%, var(--purple) 100%);
+        radial-gradient(circle at 30% 30%, #fff 0%, var(--blue) 40%, var(--purple-vivid) 100%);
     box-shadow: 0 0 10px var(--neon-soft);
 }
 
@@ -371,10 +375,10 @@ section.manifesto {
     margin: 0 0.18em;
 }
 .manifesto-text .grad-word {
-    background: linear-gradient(115deg, var(--blue-deep) 0%, var(--purple) 100%);
+    background: var(--brand-grad);
     -webkit-background-clip: text; background-clip: text;
     -webkit-text-fill-color: transparent;
-    color: var(--purple); /* fallback */
+    color: var(--purple-vivid); /* fallback */
     font-style: italic;
 }
 
@@ -461,7 +465,7 @@ section.manifesto {
     line-height: 1.45;
     max-width: 80%;
 }
-.big-stat-block em { color: var(--alert); font-style: italic; font-weight: 600; }
+.big-stat-block em { color: var(--alert); -webkit-text-fill-color: var(--alert); background: none; font-style: italic; font-weight: 600; }
 .cell-meta { font-size: 0.8rem; color: var(--ink-dim); }
 
 /* image cell — no blend mode, one cheap filter */
@@ -871,6 +875,17 @@ section.manifesto {
     color: var(--ink-dim);
     font-size: 0.85rem;
     flex-wrap: wrap; gap: 1rem;
+}
+
+/* === Gradiente vivo da marca nos acentos (substitui o roxo chapado) === */
+em, .step-num, .rmap-phase, .golden-key {
+    background: var(--brand-grad);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.m-dot, .strike::after, .nav-links a:hover::after,
+.step-list li::before, .acc-text li::before {
+    background: var(--brand-grad);
 }
 
 /* ============ Animations ============ */
