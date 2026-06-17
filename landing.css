@@ -20,12 +20,12 @@
     /* Paleta da marca */
     --blue:   #83C3ED;   /* primário (fills, botões, atmosfera) */
     --purple: #4D3E6B;   /* tradicional (usado só em fills/tints) */
-    --purple-vivid: #6A46D8; /* roxo VIVO p/ acentos (o #4D3E6B chapado fica morto) */
+    --purple-vivid: #5A2C96; /* roxo vivo, mais fechado/fundo p/ acentos */
     --lilac:  #AD9FC8;   /* apoio (uso pontual) */
     --blue-deep: #3F86C2;
 
     /* gradiente vivo da marca (azul -> roxo, sem verde) — usado nos destaques */
-    --brand-grad: linear-gradient(120deg, #2D86DE 0%, #6A46D8 50%, #8B40C6 100%);
+    --brand-grad: linear-gradient(120deg, #2D86DE 0%, #6238CC 50%, #5A2C96 100%);
 
     /* acento de TEXTO chapado = roxo VIVO (não o #4D3E6B morto) */
     --neon: var(--purple-vivid);
