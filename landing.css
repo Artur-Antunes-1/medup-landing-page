@@ -21,6 +21,7 @@
     --blue:   #83C3ED;   /* primário (fills, botões, atmosfera) */
     --purple: #4D3E6B;   /* secundário (acento de TEXTO no tema claro) */
     --lilac:  #AD9FC8;   /* apoio (uso pontual) */
+    --blue-deep: #3F86C2; /* azul mais fundo p/ texto em gradiente (legível no claro) */
 
     /* tema claro: o acento de TEXTO é o roxo (contraste sobre o fundo claro) */
     --neon: var(--purple);
@@ -92,8 +93,10 @@ ul  { list-style: none; }
 
 /* ============ Typography primitives ============ */
 .grad {
-    color: var(--purple);
-    -webkit-text-fill-color: var(--purple);
+    background: linear-gradient(115deg, var(--blue-deep) 0%, var(--purple) 100%);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: var(--purple); /* fallback */
 }
 
 .strike {
@@ -368,8 +371,10 @@ section.manifesto {
     margin: 0 0.18em;
 }
 .manifesto-text .grad-word {
-    color: var(--purple);
-    -webkit-text-fill-color: var(--purple);
+    background: linear-gradient(115deg, var(--blue-deep) 0%, var(--purple) 100%);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: var(--purple); /* fallback */
     font-style: italic;
 }
 
@@ -775,7 +780,7 @@ section.manifesto {
     letter-spacing: -0.035em;
     color: var(--ink);
 }
-.cta-h1 .grad { -webkit-text-fill-color: var(--purple); }
+.cta-h1 .grad { -webkit-text-fill-color: transparent; }
 .cta-sub {
     margin-top: 1.25rem;
     color: var(--ink-mute);
