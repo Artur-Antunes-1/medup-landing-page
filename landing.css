@@ -34,8 +34,9 @@
     --ink-bg-dim: #9a8fb2;
     --line-bg: rgba(255,255,255,0.14);
 
-    /* tint único: azul BEM suave (quase branco) em todos os cards */
-    --card-blue:   linear-gradient(160deg, rgba(131,195,237,0.07) 0%, var(--surface) 60%);
+    /* tint único: azul OPACO bem suave (quase branco) em todos os cards.
+       Opaco de propósito — com alpha o fundo roxo escuro vazava e parecia roxo. */
+    --card-blue:   #eff4fb;
     --card-lilac:  var(--card-blue);
     --card-purple: var(--card-blue);
     --card-warm:   var(--card-blue);
@@ -348,8 +349,8 @@ section.manifesto {
 
 /* washes de cor em seções-chave (ritmo, menos branco) */
 section.golden-section { background: radial-gradient(75% 90% at 50% 0%, rgba(131,195,237,0.12), transparent 72%); }
-section.manifesto      { background: radial-gradient(60% 70% at 50% 50%, rgba(173,159,200,0.12), transparent 75%); }
-section.pin-section    { background: radial-gradient(60% 60% at 100% 30%, rgba(98,56,204,0.07), transparent 70%); }
+section.manifesto      { background: radial-gradient(60% 70% at 50% 50%, rgba(131,195,237,0.10), transparent 75%); }
+section.pin-section    { background: radial-gradient(60% 60% at 100% 30%, rgba(131,195,237,0.10), transparent 70%); }
 
 .section-head {
     max-width: 880px;
