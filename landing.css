@@ -27,6 +27,12 @@
     /* gradiente vivo da marca (azul -> roxo, sem verde) — usado nos destaques */
     --brand-grad: linear-gradient(120deg, #2D86DE 0%, #6238CC 50%, #5A2C96 100%);
 
+    /* tints de card (azul / lilás / roxo / quente) p/ tirar o branco chapado */
+    --card-blue:   linear-gradient(155deg, rgba(131,195,237,0.20) 0%, var(--surface) 72%);
+    --card-lilac:  linear-gradient(155deg, rgba(173,159,200,0.22) 0%, var(--surface) 72%);
+    --card-purple: linear-gradient(155deg, rgba(98,56,204,0.12) 0%, var(--surface) 72%);
+    --card-warm:   linear-gradient(155deg, rgba(226,55,68,0.07) 0%, var(--surface) 70%);
+
     /* acento de TEXTO chapado = roxo VIVO (não o #4D3E6B morto) */
     --neon: var(--purple-vivid);
     --neon-soft: rgba(131, 195, 237, 0.32);
@@ -89,8 +95,9 @@ ul  { list-style: none; }
 .ambient-wash {
     position: fixed; inset: 0; z-index: -3;
     background:
-        radial-gradient(60% 60% at 15% 0%,  rgba(131,195,237,0.22), transparent 70%),
-        radial-gradient(50% 50% at 88% 18%, rgba(173,159,200,0.20), transparent 72%),
+        radial-gradient(55% 50% at 10% 2%,  rgba(131,195,237,0.34), transparent 68%),
+        radial-gradient(48% 46% at 92% 12%, rgba(173,159,200,0.30), transparent 70%),
+        radial-gradient(65% 55% at 50% 102%, rgba(98,56,204,0.12), transparent 70%),
         var(--bg);
     pointer-events: none;
 }
@@ -280,7 +287,7 @@ em { font-style: italic; color: var(--neon); font-weight: 600; }
     border-bottom: 1px solid var(--line);
     padding: 1.75rem 0;
     overflow: hidden;
-    background: rgba(22,26,42,0.03);
+    background: linear-gradient(90deg, rgba(131,195,237,0.10), rgba(173,159,200,0.10));
     position: relative;
     contain: layout paint;
 }
@@ -330,6 +337,11 @@ section.manifesto {
     content-visibility: auto;
     contain-intrinsic-size: 1px 800px;
 }
+
+/* washes de cor em seções-chave (ritmo, menos branco) */
+section.golden-section { background: radial-gradient(75% 90% at 50% 0%, rgba(131,195,237,0.12), transparent 72%); }
+section.manifesto      { background: radial-gradient(60% 70% at 50% 50%, rgba(173,159,200,0.12), transparent 75%); }
+section.pin-section    { background: radial-gradient(60% 60% at 100% 30%, rgba(98,56,204,0.07), transparent 70%); }
 
 .section-head {
     max-width: 880px;
@@ -498,6 +510,12 @@ section.manifesto {
 }
 .cell-mini p { color: var(--ink-mute); font-size: 0.98rem; }
 
+/* cor nos cards do bento (tira o branco chapado) */
+.cell-stat { background: var(--card-warm); }
+.cell-mini { background: var(--card-blue); }
+.cell-mini:nth-of-type(4) { background: var(--card-lilac); }
+.cell-mini:nth-of-type(5) { background: var(--card-purple); }
+
 /* ============ PIN SECTION ============ */
 .pin-section { padding-top: 9rem; padding-bottom: 9rem; }
 
@@ -577,6 +595,11 @@ section.manifesto {
     border-radius: 2px;
 }
 
+/* cor nos step cards */
+.step-card:nth-of-type(1) { background: var(--card-blue); }
+.step-card:nth-of-type(2) { background: var(--card-lilac); }
+.step-card:nth-of-type(3) { background: var(--card-purple); }
+
 /* ============ HORIZONTAL ACCORDION ============ */
 .accordion {
     display: flex;
@@ -602,7 +625,7 @@ section.manifesto {
 
 .acc-slice.acc-open {
     flex: 4;
-    background: var(--bg-2);
+    background: var(--card-blue);
 }
 
 .acc-side {
@@ -698,9 +721,9 @@ section.manifesto {
     overflow: hidden;
 }
 .golden-card:hover { transform: translateY(-4px); }
-.golden-why  { color: var(--purple); background: linear-gradient(160deg, rgba(131,195,237,0.22), var(--surface) 70%); }
-.golden-how  { color: var(--purple); background: linear-gradient(160deg, rgba(173,159,200,0.24), var(--surface) 70%); }
-.golden-what { color: var(--purple); background: linear-gradient(160deg, rgba(77,62,107,0.16),  var(--surface) 70%); }
+.golden-why  { background: var(--card-blue); }
+.golden-how  { background: var(--card-lilac); }
+.golden-what { background: var(--card-purple); }
 .golden-key {
     font-family: var(--display);
     font-weight: 800;
@@ -878,7 +901,7 @@ section.manifesto {
 }
 
 /* === Gradiente vivo da marca nos acentos (substitui o roxo chapado) === */
-em, .step-num, .rmap-phase, .golden-key {
+em, .step-num, .rmap-phase, .golden-key, .cell-tag, .cell-mini h3 {
     background: var(--brand-grad);
     -webkit-background-clip: text; background-clip: text;
     -webkit-text-fill-color: transparent;
