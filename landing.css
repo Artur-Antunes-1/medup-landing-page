@@ -519,12 +519,6 @@ section.pin-section    { background: radial-gradient(60% 60% at 100% 30%, rgba(9
 }
 .cell-mini p { color: var(--ink-mute); font-size: 0.98rem; }
 
-/* cor nos cards do bento (tira o branco chapado) */
-.cell-stat { background: var(--card-warm); }
-.cell-mini { background: var(--card-blue); }
-.cell-mini:nth-of-type(4) { background: var(--card-lilac); }
-.cell-mini:nth-of-type(5) { background: var(--card-purple); }
-
 /* ============ PIN SECTION ============ */
 .pin-section { padding-top: 9rem; padding-bottom: 9rem; }
 
@@ -604,11 +598,6 @@ section.pin-section    { background: radial-gradient(60% 60% at 100% 30%, rgba(9
     border-radius: 2px;
 }
 
-/* cor nos step cards */
-.step-card:nth-of-type(1) { background: var(--card-blue); }
-.step-card:nth-of-type(2) { background: var(--card-lilac); }
-.step-card:nth-of-type(3) { background: var(--card-purple); }
-
 /* ============ HORIZONTAL ACCORDION ============ */
 .accordion {
     display: flex;
@@ -634,7 +623,7 @@ section.pin-section    { background: radial-gradient(60% 60% at 100% 30%, rgba(9
 
 .acc-slice.acc-open {
     flex: 4;
-    background: var(--card-blue);
+    background: var(--surface);
 }
 
 .acc-side {
@@ -730,9 +719,6 @@ section.pin-section    { background: radial-gradient(60% 60% at 100% 30%, rgba(9
     overflow: hidden;
 }
 .golden-card:hover { transform: translateY(-4px); }
-.golden-why  { background: var(--card-blue); }
-.golden-how  { background: var(--card-lilac); }
-.golden-what { background: var(--card-purple); }
 .golden-key {
     font-family: var(--display);
     font-weight: 800;
@@ -816,7 +802,7 @@ section.pin-section    { background: radial-gradient(60% 60% at 100% 30%, rgba(9
     letter-spacing: -0.035em;
     color: var(--ink);
 }
-.cta-h1 .grad { background: var(--brand-grad); -webkit-text-fill-color: transparent; }
+.cta-h1 .grad { background-image: var(--brand-grad); -webkit-text-fill-color: transparent; }
 .cta-sub {
     margin-top: 1.25rem;
     color: var(--ink-mute);
@@ -915,8 +901,9 @@ em, .step-num, .rmap-phase, .golden-key, .cell-tag, .cell-mini h3 {
     -webkit-background-clip: text; background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-/* acentos SOBRE o fundo escuro usam o gradiente azul->lilás */
-em, .rmap-phase { background: var(--grad-bg); }
+/* acentos SOBRE o fundo escuro usam o gradiente azul->lilás.
+   background-IMAGE (não background): o shorthand reseta o background-clip:text. */
+em, .rmap-phase { background-image: var(--grad-bg); }
 
 .nav-links a:hover::after, .step-list li::before, .acc-text li::before {
     background: var(--brand-grad);
