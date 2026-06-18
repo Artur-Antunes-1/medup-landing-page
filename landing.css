@@ -34,11 +34,11 @@
     --ink-bg-dim: #9a8fb2;
     --line-bg: rgba(255,255,255,0.14);
 
-    /* tints de card SUAVES (fundo escuro -> manter leve, cor só no canto) */
-    --card-blue:   linear-gradient(160deg, rgba(131,195,237,0.12) 0%, var(--surface) 55%);
-    --card-lilac:  linear-gradient(160deg, rgba(173,159,200,0.13) 0%, var(--surface) 55%);
-    --card-purple: linear-gradient(160deg, rgba(98,56,204,0.10) 0%, var(--surface) 55%);
-    --card-warm:   linear-gradient(160deg, rgba(226,55,68,0.06) 0%, var(--surface) 55%);
+    /* tint único: azul BEM suave (quase branco) em todos os cards */
+    --card-blue:   linear-gradient(160deg, rgba(131,195,237,0.07) 0%, var(--surface) 60%);
+    --card-lilac:  var(--card-blue);
+    --card-purple: var(--card-blue);
+    --card-warm:   var(--card-blue);
 
     /* acento de TEXTO chapado = roxo VIVO (não o #4D3E6B morto) */
     --neon: var(--purple-vivid);
