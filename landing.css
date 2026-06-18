@@ -36,7 +36,7 @@
 
     /* tint único: azul OPACO bem suave (quase branco) em todos os cards.
        Opaco de propósito — com alpha o fundo roxo escuro vazava e parecia roxo. */
-    --card-blue:   #eff4fb;
+    --card-blue:   #d8e9f8;
     --card-lilac:  var(--card-blue);
     --card-purple: var(--card-blue);
     --card-warm:   var(--card-blue);
