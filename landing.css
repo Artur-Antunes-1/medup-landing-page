@@ -34,11 +34,11 @@
     --ink-bg-dim: #9a8fb2;
     --line-bg: rgba(255,255,255,0.14);
 
-    /* tints de card (azul / lilás / roxo / quente) p/ tirar o branco chapado */
-    --card-blue:   linear-gradient(155deg, rgba(131,195,237,0.20) 0%, var(--surface) 72%);
-    --card-lilac:  linear-gradient(155deg, rgba(173,159,200,0.22) 0%, var(--surface) 72%);
-    --card-purple: linear-gradient(155deg, rgba(98,56,204,0.12) 0%, var(--surface) 72%);
-    --card-warm:   linear-gradient(155deg, rgba(226,55,68,0.07) 0%, var(--surface) 70%);
+    /* tints de card SUAVES (fundo escuro -> manter leve, cor só no canto) */
+    --card-blue:   linear-gradient(160deg, rgba(131,195,237,0.12) 0%, var(--surface) 55%);
+    --card-lilac:  linear-gradient(160deg, rgba(173,159,200,0.13) 0%, var(--surface) 55%);
+    --card-purple: linear-gradient(160deg, rgba(98,56,204,0.10) 0%, var(--surface) 55%);
+    --card-warm:   linear-gradient(160deg, rgba(226,55,68,0.06) 0%, var(--surface) 55%);
 
     /* acento de TEXTO chapado = roxo VIVO (não o #4D3E6B morto) */
     --neon: var(--purple-vivid);
@@ -519,6 +519,12 @@ section.pin-section    { background: radial-gradient(60% 60% at 100% 30%, rgba(9
 }
 .cell-mini p { color: var(--ink-mute); font-size: 0.98rem; }
 
+/* tint suave nos cards do bento */
+.cell-stat { background: var(--card-warm); }
+.cell-mini { background: var(--card-blue); }
+.cell-mini:nth-of-type(4) { background: var(--card-lilac); }
+.cell-mini:nth-of-type(5) { background: var(--card-purple); }
+
 /* ============ PIN SECTION ============ */
 .pin-section { padding-top: 9rem; padding-bottom: 9rem; }
 
@@ -598,6 +604,11 @@ section.pin-section    { background: radial-gradient(60% 60% at 100% 30%, rgba(9
     border-radius: 2px;
 }
 
+/* tint suave nos step cards */
+.step-card:nth-of-type(1) { background: var(--card-blue); }
+.step-card:nth-of-type(2) { background: var(--card-lilac); }
+.step-card:nth-of-type(3) { background: var(--card-purple); }
+
 /* ============ HORIZONTAL ACCORDION ============ */
 .accordion {
     display: flex;
@@ -623,7 +634,7 @@ section.pin-section    { background: radial-gradient(60% 60% at 100% 30%, rgba(9
 
 .acc-slice.acc-open {
     flex: 4;
-    background: var(--surface);
+    background: var(--card-blue);
 }
 
 .acc-side {
@@ -719,6 +730,9 @@ section.pin-section    { background: radial-gradient(60% 60% at 100% 30%, rgba(9
     overflow: hidden;
 }
 .golden-card:hover { transform: translateY(-4px); }
+.golden-why  { background: var(--card-blue); }
+.golden-how  { background: var(--card-lilac); }
+.golden-what { background: var(--card-purple); }
 .golden-key {
     font-family: var(--display);
     font-weight: 800;
