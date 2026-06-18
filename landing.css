@@ -6,8 +6,8 @@
    ========================================================== */
 
 :root {
-    --bg: #f4f6fb;
-    --bg-2: #e9ecf5;
+    --bg: #352452;
+    --bg-2: #2b1d45;
 
     /* solid light surfaces */
     --surface:   #ffffff;
@@ -25,7 +25,14 @@
     --blue-deep: #3F86C2;
 
     /* gradiente vivo da marca (azul -> roxo, sem verde) — usado nos destaques */
-    --brand-grad: linear-gradient(120deg, #2D86DE 0%, #6238CC 50%, #5A2C96 100%);
+    --brand-grad: linear-gradient(120deg, #2D86DE 0%, #6238CC 50%, #5A2C96 100%); /* in-card (legível no claro) */
+    --grad-bg: linear-gradient(120deg, #3D9BE8 0%, #8E84D6 50%, #AD9FC8 100%);     /* sobre o fundo escuro (azul -> lilás) */
+
+    /* texto e linhas sobre o fundo roxo escuro */
+    --ink-bg: #f3effa;
+    --ink-bg-mute: #c6bcda;
+    --ink-bg-dim: #9a8fb2;
+    --line-bg: rgba(255,255,255,0.14);
 
     /* tints de card (azul / lilás / roxo / quente) p/ tirar o branco chapado */
     --card-blue:   linear-gradient(155deg, rgba(131,195,237,0.20) 0%, var(--surface) 72%);
@@ -104,14 +111,14 @@ ul  { list-style: none; }
 
 /* ============ Typography primitives ============ */
 .grad {
-    background: var(--brand-grad);
+    background: var(--grad-bg);
     -webkit-background-clip: text; background-clip: text;
     -webkit-text-fill-color: transparent;
-    color: var(--purple-vivid); /* fallback */
+    color: var(--lilac); /* fallback */
 }
 
 .strike {
-    position: relative; color: var(--ink-mute);
+    position: relative; color: var(--ink-bg-mute);
 }
 .strike::after {
     content: ''; position: absolute; left: -2%; right: -2%;
@@ -204,12 +211,12 @@ em { font-style: italic; color: var(--neon); font-weight: 600; }
 }
 
 .btn-ghost {
-    background: rgba(22,26,42,0.03);
-    border-color: var(--line-strong);
-    color: var(--ink);
+    background: rgba(255,255,255,0.06);
+    border-color: var(--line-bg);
+    color: var(--ink-bg);
 }
 .btn-ghost:hover {
-    background: rgba(22,26,42,0.06);
+    background: rgba(255,255,255,0.12);
     transform: translateY(-2px);
 }
 
@@ -231,14 +238,14 @@ em { font-style: italic; color: var(--neon); font-weight: 600; }
     width: 100%; height: 100%;
     object-fit: cover;
     /* one cheap filter instead of three */
-    filter: brightness(1.06) contrast(0.96) saturate(1.05);
-    opacity: 0.3;
+    filter: brightness(0.5) contrast(1.05) saturate(1.05);
+    opacity: 0.45;
 }
 .hero-bg-wash {
     position: absolute; inset: 0;
     background:
-        radial-gradient(ellipse 75% 65% at 50% 55%, rgba(244,246,251,0) 0%, rgba(244,246,251,0.82) 62%, rgba(244,246,251,1) 100%),
-        linear-gradient(180deg, rgba(244,246,251,0.55) 0%, rgba(244,246,251,0) 28%, rgba(244,246,251,0.7) 78%, var(--bg) 100%);
+        radial-gradient(ellipse 75% 65% at 50% 55%, rgba(53,36,82,0) 0%, rgba(53,36,82,0.80) 62%, rgba(53,36,82,1) 100%),
+        linear-gradient(180deg, rgba(53,36,82,0.55) 0%, rgba(53,36,82,0) 28%, rgba(53,36,82,0.7) 78%, var(--bg) 100%);
 }
 
 .hero-stage {
@@ -253,13 +260,14 @@ em { font-style: italic; color: var(--neon); font-weight: 600; }
     font-size: clamp(3rem, 6vw, 5.75rem);
     line-height: 1.02;
     letter-spacing: -0.035em;
+    color: var(--ink-bg);
     max-width: 18ch;
 }
 
 .hero-sub {
     max-width: 640px;
     font-size: clamp(1.05rem, 1.4vw, 1.25rem);
-    color: var(--ink-mute);
+    color: var(--ink-bg-mute);
     line-height: 1.55;
 }
 
@@ -283,8 +291,8 @@ em { font-style: italic; color: var(--neon); font-weight: 600; }
 
 /* ============ MARQUEE ============ */
 .marquee {
-    border-top: 1px solid var(--line);
-    border-bottom: 1px solid var(--line);
+    border-top: 1px solid var(--line-bg);
+    border-bottom: 1px solid var(--line-bg);
     padding: 1.75rem 0;
     overflow: hidden;
     background: linear-gradient(90deg, rgba(131,195,237,0.10), rgba(173,159,200,0.10));
@@ -312,7 +320,7 @@ em { font-style: italic; color: var(--neon); font-weight: 600; }
     font-family: var(--display);
     font-size: clamp(1.25rem, 2vw, 2rem);
     font-weight: 500;
-    color: var(--ink-mute);
+    color: var(--ink-bg-mute);
     letter-spacing: -0.01em;
     white-space: nowrap;
 }
@@ -356,13 +364,13 @@ section.pin-section    { background: radial-gradient(60% 60% at 100% 30%, rgba(9
     font-size: clamp(2.25rem, 4vw, 3.75rem);
     line-height: 1.05;
     letter-spacing: -0.03em;
-    color: var(--ink);
+    color: var(--ink-bg);
 }
 
 .section-lede {
     margin-top: 1.5rem;
     font-size: clamp(1rem, 1.2vw, 1.15rem);
-    color: var(--ink-mute);
+    color: var(--ink-bg-mute);
     max-width: 600px;
     margin-left: auto; margin-right: auto;
     line-height: 1.6;
@@ -378,6 +386,7 @@ section.pin-section    { background: radial-gradient(60% 60% at 100% 30%, rgba(9
     line-height: 1.25;
     letter-spacing: -0.025em;
     text-align: center;
+    color: var(--ink-bg);
     max-width: 1100px;
     margin: 0 auto;
 }
@@ -387,10 +396,10 @@ section.pin-section    { background: radial-gradient(60% 60% at 100% 30%, rgba(9
     margin: 0 0.18em;
 }
 .manifesto-text .grad-word {
-    background: var(--brand-grad);
+    background: var(--grad-bg);
     -webkit-background-clip: text; background-clip: text;
     -webkit-text-fill-color: transparent;
-    color: var(--purple-vivid); /* fallback */
+    color: var(--lilac); /* fallback */
     font-style: italic;
 }
 
@@ -741,7 +750,7 @@ section.pin-section    { background: radial-gradient(60% 60% at 100% 30%, rgba(9
 
 /* ============ ROADMAP ============ */
 .rmap {
-    border-top: 1px solid var(--line);
+    border-top: 1px solid var(--line-bg);
 }
 .rmap-row {
     display: grid;
@@ -749,7 +758,7 @@ section.pin-section    { background: radial-gradient(60% 60% at 100% 30%, rgba(9
     gap: 2rem;
     align-items: baseline;
     padding: 3rem 0;
-    border-bottom: 1px solid var(--line);
+    border-bottom: 1px solid var(--line-bg);
     transition: padding 0.3s ease, background 0.3s;
     cursor: default;
 }
@@ -768,7 +777,7 @@ section.pin-section    { background: radial-gradient(60% 60% at 100% 30%, rgba(9
 .rmap-time {
     font-family: var(--display);
     font-size: 1rem;
-    color: var(--ink-dim);
+    color: var(--ink-bg-dim);
     letter-spacing: 0.05em;
 }
 .rmap-title {
@@ -776,9 +785,9 @@ section.pin-section    { background: radial-gradient(60% 60% at 100% 30%, rgba(9
     font-weight: 700;
     font-size: clamp(1.4rem, 2.2vw, 1.95rem);
     letter-spacing: -0.02em;
-    color: var(--ink);
+    color: var(--ink-bg);
 }
-.rmap-desc { color: var(--ink-mute); font-size: 1.02rem; line-height: 1.55; }
+.rmap-desc { color: var(--ink-bg-mute); font-size: 1.02rem; line-height: 1.55; }
 
 .rmap-row-final .rmap-phase { color: var(--purple); }
 
@@ -807,7 +816,7 @@ section.pin-section    { background: radial-gradient(60% 60% at 100% 30%, rgba(9
     letter-spacing: -0.035em;
     color: var(--ink);
 }
-.cta-h1 .grad { -webkit-text-fill-color: transparent; }
+.cta-h1 .grad { background: var(--brand-grad); -webkit-text-fill-color: transparent; }
 .cta-sub {
     margin-top: 1.25rem;
     color: var(--ink-mute);
@@ -906,10 +915,13 @@ em, .step-num, .rmap-phase, .golden-key, .cell-tag, .cell-mini h3 {
     -webkit-background-clip: text; background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-.m-dot, .strike::after, .nav-links a:hover::after,
-.step-list li::before, .acc-text li::before {
+/* acentos SOBRE o fundo escuro usam o gradiente azul->lilás */
+em, .rmap-phase { background: var(--grad-bg); }
+
+.nav-links a:hover::after, .step-list li::before, .acc-text li::before {
     background: var(--brand-grad);
 }
+.m-dot, .strike::after { background: var(--grad-bg); }
 
 /* ============ Animations ============ */
 @keyframes marquee {
